@@ -1,0 +1,37 @@
+#source leaprc.protein.ff14SB
+source leaprc.gaff
+source leaprc.water.tip3p
+#source leaprc.gaff2
+
+loadoff B.lib
+#loadoff B.lib
+#loadoff C.lib
+#loadoff D.lib
+#loadoff E.lib
+#loadoff F.lib
+#loadoff G.lib
+#loadoff H.lib
+loadoff Arg.lib
+
+loadamberparams B.frcmod
+#loadamberparams B.frcmod
+#loadamberparams C.frcmod
+#loadamberparams D.frcmod
+#loadamberparams E.frcmod
+#loadamberparams F.frcmod
+#loadamberparams G.frcmod
+#loadamberparams H.frcmod
+loadamberparams Arg.frcmod
+
+loadamberparams frcmod.ions1lm_1264_tip3p
+
+All = loadpdb mix-WP5.pdb
+setBox All "vdw"
+
+addions All Na+ 80
+#addions All Cl- 60
+charge All
+check All
+
+savepdb All 1.pdb
+saveamberparm All mix-WP5.prmtop mix-WP5.inpcrd
