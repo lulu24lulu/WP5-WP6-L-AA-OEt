@@ -1,0 +1,24 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff
+source leaprc.water.tip3p
+#source leaprc.gaff2
+
+loadoff A.lib
+loadoff B.lib
+loadoff His.lib
+
+loadamberparams A.frcmod
+loadamberparams B.frcmod
+loadamberparams L-His.frcmod
+
+#loadamberparams frcmod.ions234lm_126_tip3p
+#loadamberparams frcmod.ions1lm_126_tip3p
+
+All = loadpdb WP5-His.pdb
+setBox All "vdw"
+
+charge All
+check All
+
+savepdb All 1.pdb
+saveamberparm All WP5-L-HIS.prmtop WP5-L-HIS.inpcrd
