@@ -1,0 +1,21 @@
+source leaprc.gaff
+source leaprc.water.tip3p
+
+loadoff A.lib
+loadoff Ala.lib
+
+loadamberparams A.frcmod
+loadamberparams Ala.frcmod
+
+loadamberparams frcmod.ions1lm_1264_tip3p
+
+All = loadpdb mix-WP5.pdb
+setBox All "vdw"
+
+addions All Na+ 80
+addions All Cl- 0
+charge All
+check All
+
+savepdb All 1.pdb
+saveamberparm All mix-WP5.prmtop mix-WP5.inpcrd
