@@ -1,0 +1,11 @@
+Initial Minimization of MOL and solvate
+&cntrl
+imin=1, maxcyc=2000,ncyc=100,
+!ntr=1,
+cut=10
+&end
+!Hold A,B,C,D,E,F fix 
+!100.0
+!RES 1 6
+!END
+!END
