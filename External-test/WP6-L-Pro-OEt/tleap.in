@@ -1,0 +1,26 @@
+#source leaprc.protein.ff14SB
+source leaprc.gaff
+source leaprc.water.tip3p
+#source leaprc.gaff2
+
+loadoff PR.lib
+loadoff PS.lib
+loadoff Pro.lib
+
+loadamberparams PR.frcmod
+loadamberparams PS.frcmod
+loadamberparams L-Pro.frcmod
+
+#loadamberparams frcmod.ions234lm_126_tip3p
+loadamberparams frcmod.ions1lm_126_tip3p
+
+All = loadpdb WP6-Pro.pdb
+setBox All "vdw"
+
+addions All Na+ 72
+addions All Cl- 80
+charge All
+check All
+
+savepdb All 1.pdb
+saveamberparm All WP6-L-Pro.prmtop WP6-L-Pro.inpcrd
